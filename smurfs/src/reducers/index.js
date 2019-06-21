@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   error: '',
-  fetchingSmurf: false,
+  fetchingData: false,
   smurfs: [],
   addSmurfs: []
 };
@@ -20,38 +20,38 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: '',
-        fetchingSmurf: true
+        fetchingData: true
       };
     case FETCH_SMURF_SUCCESS:
       return {
         ...state,
-        fetchingSmurf: false,
-        smurf: action.payload
+        fetchingData: false,
+        smurfs: action.payload
           
       };
     case FETCH_SMURF_FAILURE:
       return {
         ...state,
-        fetchingSmurf: false,
+        fetchingData: false,
         error: action.payload
       };
     case ADD_SMURF_START:
       return {
         ...state,
-        fetchingSmurf: true,
+        fetchingData: true,
         error: ''
       }
     case ADD_SMURF_SUCCESS:
       return {
         ...state,
-        fetchingSmurf: false,
+        fetchingData: false,
         smurfs: action.payload,
         addSmurfs: action.payload
       }
     case ADD_SMURF_FAILURE:
       return {
         ...state,
-        fetchingSmurf: false,
+        fetchingData: false,
         error: action.payload
       }
     default:

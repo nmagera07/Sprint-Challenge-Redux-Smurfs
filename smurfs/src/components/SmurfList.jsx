@@ -1,12 +1,17 @@
 import React from 'react';
+import Smurf from './Smurf'
 
-const Smurf = (props) => {
+const SmurfList = (props) => {
+  console.log(props)
     return ( 
         <div>
           {props.smurfs.map(smurf => {
             return (
               <div>
-                <Smurf key={smurf.id} smurf={smurf} />
+                 <Smurf
+                  key={smurf.id}
+                  smurf={smurf}
+              />
               </div>
             )
           })}
@@ -14,4 +19,4 @@ const Smurf = (props) => {
      );
 }
  
-export default Smurf;
+export default SmurfList;

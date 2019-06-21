@@ -19,7 +19,7 @@ class App extends Component {
 
   handleChanges = e => {
     this.setState({
-      friends: {
+      smurfs: {
         ...this.state.smurfs,
         [e.target.name]: e.target.value
       }
@@ -42,17 +42,43 @@ class App extends Component {
     return (
       
       <div className="App">
-        <p>hello</p>
        <SmurfList smurfs={this.props.smurfs}/>
-       
+        <form onSubmit={this.handleSubmit}>
+                    <h2>Enter a new smurf!</h2>
+                    <input 
+                        type="text"
+                        value={this.state.smurfs.name}
+                        name="name"
+                        onChange={this.handleChanges}
+                        placeholder="Name"
+                        required
+                    />
+                    <input 
+                        type="text"
+                        value={this.state.smurfs.age}
+                        name="age"
+                        onChange={this.handleChanges}
+                        placeholder="Age"
+                    />
+                    <input 
+                        type="text"
+                        value={this.state.smurfs.height}
+                        name="height"
+                        onChange={this.handleChanges}
+                        placeholder="Height"
+                    />
+                    <button onClick={this.addSmurf}>Add Smurf</button>
+                    
+                </form>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  
   error: state.error,
-  fetchingSmurf: state.fetchingSmurf,
+  fetchingData: state.fetchingData,
   smurfs: state.smurfs,
   addSmurfs: state.addSmurfs
 })
